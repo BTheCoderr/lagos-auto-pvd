@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
-import { formatPrice } from '@/lib/utils'
+import { formatPrice } from '@/src/lib/utils'
 
-export const services = [
+const services = [
   {
     id: 'detailing',
     title: 'Auto Detailing',

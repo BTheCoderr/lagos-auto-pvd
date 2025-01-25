@@ -5,7 +5,10 @@ import Link from 'next/link'
 import MobileMenu from '@/components/layout/MobileMenu'
 import { Toaster } from '@/components/ui/Toaster'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -14,8 +17,8 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Lagos Auto PVD',
-  description: 'Professional Vehicle Detailing Services in Providence, RI',
+  title: 'Lagos Auto PVD - Professional Auto Services',
+  description: 'Premier auto repair and maintenance services in Providence. Specializing in professional vehicle detailing, repairs, and maintenance.',
   metadataBase: new URL('http://localhost:3000'),
   keywords: 'auto repair, car maintenance, vehicle detailing, Providence auto services, car repair shop',
   authors: [{ name: 'Lagos Auto PVD' }],
@@ -41,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
+    <html lang="en" className={inter.className}>
+      <body>
         <nav className="sticky top-0 z-50 bg-white shadow-lg">
           <div className="container mx-auto px-4">
             <div className="flex justify-between items-center h-16">
