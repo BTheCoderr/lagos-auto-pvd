@@ -9,8 +9,80 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Vehicle {
+  id                String    @id @default(cuid())
+  make             String
+  model            String
+  year             Int
+  price            Float
+  mileage          Int
+  vin              String    @unique
+  exteriorColor    String
+  interiorColor    String
+  transmission     String
+  fuelType         String
+  bodyStyle        String
+  description      String    @db.Text
+  features         String[]
+  images           Image[]
+  status           String    @default("available") // available, sold, pending
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  priceHistory     PriceHistory[]
+  recentlyViewed   RecentlyViewed[]
+  priceDropAlerts  PriceDropAlert[]
+}
+
+model Image {
+  id        String   @id @default(cuid())
+  url       String
+  alt       String?
+  vehicleId String
+  vehicle   Vehicle  @relation(fields: [vehicleId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model PriceHistory {
+  id        String   @id @default(cuid())
+  price     Float
+  vehicleId String
+  vehicle   Vehicle  @relation(fields: [vehicleId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model RecentlyViewed {
+  id        String   @id @default(cuid())
+  userId    String
+  vehicleId String
+  vehicle   Vehicle  @relation(fields: [vehicleId], references: [id])
+  viewedAt  DateTime @default(now())
+
+  @@unique([userId, vehicleId])
+}
+
+model PriceDropAlert {
+  id          String   @id @default(cuid())
+  userId      String
+  vehicleId   String
+  vehicle     Vehicle  @relation(fields: [vehicleId], references: [id])
+  targetPrice Float
+  createdAt   DateTime @default(now())
+  isActive    Boolean  @default(true)
+
+  @@unique([userId, vehicleId])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  userId    String
+  rating    Int
+  comment   String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Booking {
