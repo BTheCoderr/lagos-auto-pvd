@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { addToRecentlyViewed } from '@/lib/recentlyViewed'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button'
 
 interface VehicleCardProps {
   vehicle: {
