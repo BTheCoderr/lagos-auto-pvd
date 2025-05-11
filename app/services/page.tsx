@@ -3,7 +3,32 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { formatPrice } from '@/src/lib/utils'
 
-const services = [
+interface PricingTier {
+  name: string;
+  price: number;
+  includes: string[];
+  note?: string;
+}
+
+interface ServiceRequirements {
+  newVehicles: string;
+  usedVehicles: string;
+  dealerPurchases: string;
+  outOfState: string;
+  antiqueVehicles: string;
+}
+
+interface Service {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  features: string[];
+  pricing: PricingTier[];
+  requirements?: ServiceRequirements;
+}
+
+const services: Service[] = [
   {
     id: 'detailing',
     title: 'Auto Detailing',
@@ -34,6 +59,65 @@ const services = [
         includes: ['Premium detail services', 'Two-step paint correction', 'Ceramic coating', 'Engine bay detail'],
       },
     ],
+  },
+  {
+    id: 'inspection',
+    title: 'State Inspection',
+    description: 'Professional state inspection services to ensure your vehicle meets all Rhode Island safety and emissions requirements. We are a licensed RI inspection station offering comprehensive testing for all vehicle types.',
+    image: 'https://placehold.co/1200x800/0066ff/ffffff?text=State+Inspection',
+    features: [
+      'Complete safety inspection',
+      'Emissions testing (where required)',
+      'Brake system check',
+      'Lighting system verification',
+      'Tire condition assessment',
+      'Documentation assistance',
+      'RI DMV compliance verification',
+      'Digital inspection report',
+    ],
+    pricing: [
+      {
+        name: 'Light Duty Vehicle Inspection',
+        price: 5500,
+        includes: [
+          '2-year emission and safety inspection',
+          'For vehicles up to 8,500 lbs. GVWR',
+          'Comprehensive safety check',
+          'Emissions testing',
+          'Digital report',
+        ],
+        note: 'Required every 24 months for gas & diesel vehicles. Electric vehicles exempt from emissions testing.',
+      },
+      {
+        name: 'Heavy Duty Vehicle Inspection',
+        price: 1500,
+        includes: [
+          '1-year safety inspection',
+          'For vehicles over 8,500 lbs. GVWR',
+          'Comprehensive safety check',
+          'Digital report',
+        ],
+        note: 'Required annually for all heavy-duty vehicles.',
+      },
+      {
+        name: 'Motorcycle/Trailer Inspection',
+        price: 1100,
+        includes: [
+          '1-year safety inspection',
+          'For motorcycles and trailers over 1,000 lbs. GVWR',
+          'Comprehensive safety check',
+          'Digital report',
+        ],
+        note: 'Required annually before June 30th.',
+      },
+    ],
+    requirements: {
+      newVehicles: 'Exempt for 2 years from purchase date or until 24,000 miles, whichever occurs first.',
+      usedVehicles: 'Must pass inspection within 5 days of registration.',
+      dealerPurchases: 'Must have new sticker at time of sale (no more than 90 days old, less than 500 miles from inspection).',
+      outOfState: 'Must pass RI inspection within 5 business days of registration.',
+      antiqueVehicles: 'Exempt from inspection requirements.',
+    },
   },
   {
     id: 'maintenance',
@@ -137,7 +221,7 @@ export default function ServicesPage() {
       <section className="relative h-[60vh] min-h-[400px] w-full overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-transparent">
           <Image
-            src="https://placehold.co/1920x1080/0066ff/ffffff?text=Our+Services"
+            src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80"
             alt="Auto services hero image"
             fill
             className="object-cover object-center -z-10 scale-105 animate-ken-burns"
@@ -150,7 +234,7 @@ export default function ServicesPage() {
               Our Services
             </h1>
             <p className="text-xl mb-8 text-gray-200 animate-fade-in-up animation-delay-200">
-              Experience premium auto care services tailored to your vehicle\'s needs.
+              Experience premium auto care services tailored to your vehicle's needs.
             </p>
           </div>
         </div>
@@ -178,6 +262,43 @@ export default function ServicesPage() {
                 <div className="p-8">
                   <h3 className="text-2xl font-bold mb-4 text-gray-900">{service.title}</h3>
                   <p className="text-gray-600 mb-6">{service.description}</p>
+                  
+                  {service.id === 'inspection' && service.requirements && (
+                    <div className="mb-6 p-4 bg-blue-50 rounded-lg">
+                      <h4 className="font-semibold text-blue-900 mb-2">Important Requirements:</h4>
+                      <ul className="space-y-2 text-sm text-blue-800">
+                        {Object.entries(service.requirements).map(([key, value]) => (
+                          <li key={key} className="flex items-start">
+                            <span className="mr-2">•</span>
+                            <span>{value}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  <div className="space-y-4 mb-6">
+                    {service.pricing.map((tier) => (
+                      <div key={tier.name} className="border rounded-lg p-4">
+                        <div className="flex justify-between items-start mb-2">
+                          <h4 className="font-semibold text-gray-900">{tier.name}</h4>
+                          <span className="text-lg font-bold text-blue-600">${(tier.price / 100).toFixed(2)}</span>
+                        </div>
+                        <ul className="space-y-1 text-sm text-gray-600">
+                          {tier.includes.map((item) => (
+                            <li key={item} className="flex items-start">
+                              <span className="mr-2">✓</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        {tier.note && (
+                          <p className="mt-2 text-sm text-gray-500 italic">{tier.note}</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+
                   <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300 transform hover:scale-105" asChild>
                     <Link href={`/booking?service=${service.id}`}>Book Now</Link>
                   </Button>

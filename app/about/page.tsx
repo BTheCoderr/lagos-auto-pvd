@@ -29,7 +29,7 @@ const milestones = [
   {
     year: '2015',
     title: 'Company Founded',
-    description: 'Lagos Auto PVD was established with a vision to revolutionize auto care services in Lagos.',
+    description: 'Lagos Auto PVD was established with a vision to revolutionize auto care services in Providence.',
   },
   {
     year: '2017',
@@ -55,7 +55,7 @@ export default function AboutPage() {
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50">
           <Image
-            src="https://placehold.co/1920x1080/0066ff/ffffff?text=Our+Modern+Facility"
+            src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80"
             alt="Our workshop"
             fill
             className="object-cover object-center -z-10"
@@ -90,7 +90,7 @@ export default function AboutPage() {
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image
-                src="https://placehold.co/1200x800/0066ff/ffffff?text=Our+Modern+Facility"
+                src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80"
                 alt="Our modern facility"
                 fill
                 className="object-cover"
