@@ -74,7 +74,7 @@ export default function GalleryPage() {
       <section className="relative h-[60vh] min-h-[400px] w-full overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-transparent">
           <Image
-            src="https://placehold.co/1920x1080/0066ff/ffffff?text=Our+Work"
+            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80"
             alt="Gallery hero image"
             fill
             className="object-cover object-center -z-10 scale-105 animate-ken-burns"

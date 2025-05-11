@@ -8,7 +8,7 @@ export default function TradeInPage() {
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50">
           <Image
-            src="https://placehold.co/1920x1080/0066ff/ffffff?text=Value+Your+Trade"
+            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80"
             alt="Trade-in Value"
             fill
             className="object-cover object-center -z-10"

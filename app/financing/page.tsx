@@ -8,7 +8,7 @@ export default function FinancingPage() {
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50">
           <Image
-            src="https://placehold.co/1920x1080/0066ff/ffffff?text=Financing+Options"
+            src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?auto=format&fit=crop&w=800&q=80"
             alt="Financing"
             fill
             className="object-cover object-center -z-10"

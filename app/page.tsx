@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 
@@ -8,6 +7,12 @@ const services = [
     description: 'Professional interior and exterior detailing services to keep your vehicle looking its best.',
     icon: '🚗',
     href: '/services#detailing',
+  },
+  {
+    title: 'State Inspection',
+    description: 'Complete state inspection services to ensure your vehicle meets all safety and emissions requirements.',
+    icon: '🔍',
+    href: '/services#inspection',
   },
   {
     title: 'Maintenance',
@@ -35,12 +40,10 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[90vh] min-h-[600px] w-full overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/60">
-          <Image
-            src="https://placehold.co/1920x1080/0066ff/ffffff?text=Premium+Auto+Care"
+          <img
+            src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=80"
             alt="Luxury car being detailed"
-            fill
-            className="object-cover object-center -z-10 scale-105 animate-ken-burns"
-            priority
+            className="absolute inset-0 object-cover object-center -z-10 scale-105 animate-ken-burns w-full h-full"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40" />
@@ -181,11 +184,10 @@ export default function Home() {
               </div>
             </div>
             <div className="relative h-[500px] rounded-lg overflow-hidden">
-              <Image
-                src="/images/hero/workshop.jpg"
+              <img
+                src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80"
                 alt="Our modern workshop"
-                fill
-                className="object-cover"
+                className="absolute inset-0 object-cover w-full h-full"
               />
             </div>
           </div>

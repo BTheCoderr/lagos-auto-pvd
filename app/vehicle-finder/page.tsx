@@ -8,7 +8,7 @@ export default function VehicleFinderPage() {
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50">
           <Image
-            src="https://placehold.co/1920x1080/0066ff/ffffff?text=Vehicle+Finder"
+            src="https://images.unsplash.com/photo-1461632830798-3adb3034e4c8?auto=format&fit=crop&w=800&q=80"
             alt="Vehicle Finder"
             fill
             className="object-cover object-center -z-10"

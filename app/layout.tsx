@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: 'Lagos Auto PVD - Professional Auto Services',
   description: 'Premier auto repair and maintenance services in Providence. Specializing in professional vehicle detailing, repairs, and maintenance.',
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL('http://localhost:3100'),
   keywords: 'auto repair, car maintenance, vehicle detailing, Providence auto services, car repair shop',
   authors: [{ name: 'Lagos Auto PVD' }],
   openGraph: {
@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     title: 'Lagos Auto PVD - Professional Auto Services',
     description: 'Premier auto repair and maintenance services in Providence, RI',
   },
-  viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
 }
 

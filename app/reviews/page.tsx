@@ -28,7 +28,7 @@ export default function ReviewsPage() {
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50">
           <Image
-            src="https://placehold.co/1920x1080/0066ff/ffffff?text=Customer+Reviews"
+            src="https://images.unsplash.com/photo-1511918984145-48de785d4c4e?auto=format&fit=crop&w=800&q=80"
             alt="Customer Reviews"
             fill
             className="object-cover object-center -z-10"

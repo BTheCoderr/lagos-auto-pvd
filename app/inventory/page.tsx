@@ -16,7 +16,7 @@ const sampleVehicles = [
     status: 'available',
     images: [
       {
-        url: 'https://placehold.co/800x600/0066ff/ffffff?text=Toyota+Camry',
+        url: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80',
         alt: '2022 Toyota Camry'
       }
     ]
@@ -33,7 +33,7 @@ const sampleVehicles = [
     status: 'available',
     images: [
       {
-        url: 'https://placehold.co/800x600/0066ff/ffffff?text=Honda+Accord',
+        url: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80',
         alt: '2021 Honda Accord'
       }
     ]
@@ -50,7 +50,7 @@ const sampleVehicles = [
     status: 'available',
     images: [
       {
-        url: 'https://placehold.co/800x600/0066ff/ffffff?text=Ford+F-150',
+        url: 'https://images.unsplash.com/photo-1605893477799-b99e3b400891?auto=format&fit=crop&w=800&q=80',
         alt: '2020 Ford F-150'
       }
     ]
@@ -64,7 +64,7 @@ export default function InventoryPage() {
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50">
           <Image
-            src="https://placehold.co/1920x1080/0066ff/ffffff?text=Our+Inventory"
+            src="https://images.unsplash.com/photo-1558486012-817176f84c6d?auto=format&fit=crop&w=2000&q=80"
             alt="Car inventory"
             fill
             className="object-cover object-center -z-10"

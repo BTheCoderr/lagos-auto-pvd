@@ -102,7 +102,7 @@ export default function BookingPage() {
       <section className="relative h-[60vh] min-h-[400px] w-full overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-transparent">
           <Image
-            src="https://placehold.co/1920x1080/0066ff/ffffff?text=Book+An+Appointment"
+            src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80"
             alt="Booking hero image"
             fill
             className="object-cover object-center -z-10 scale-105 animate-ken-burns"
@@ -187,6 +187,7 @@ export default function BookingPage() {
                             <SelectItem value="protection">Paint Protection</SelectItem>
                             <SelectItem value="maintenance">Maintenance</SelectItem>
                             <SelectItem value="repairs">Repairs</SelectItem>
+                            <SelectItem value="inspection">State Inspection</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
